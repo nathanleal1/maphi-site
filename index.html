@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maphi Securitizadora — Antecipação de recebíveis para empresas</title>
+<meta name="description" content="Transforme suas vendas a prazo em caixa hoje. Simule a antecipação de duplicatas, notas fiscais e contratos e veja quanto sua empresa recebe, sem burocracia.">
+<meta name="theme-color" content="#0B3B2C">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Maphi Securitizadora">
+<meta property="og:title" content="Maphi Securitizadora — Antecipação de recebíveis para empresas">
+<meta property="og:description" content="Simule quanto sua empresa recebe ao antecipar duplicatas, notas fiscais e contratos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 110'%3E%3Cpath d='M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z' fill='none' stroke='%2316A46F' stroke-width='13' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g900:#07271D; --g800:#0B3B2C; --g700:#0F5741; --g600:#12775A;
+  --g500:#16A46F; --g400:#35C288; --g300:#8DE3B8; --g100:#DDF3E8; --g50:#F2F9F5;
+  --ink:#0F2820; --body:#3E5B51; --mut:#6C877C; --line:#DCE9E3;
+  --amber:#C98A2E; --white:#fff;
+  --sh-s:0 1px 2px rgba(7,39,29,.06),0 4px 12px rgba(7,39,29,.05);
+  --sh-m:0 4px 10px rgba(7,39,29,.06),0 18px 44px rgba(7,39,29,.09);
+  --sh-l:0 10px 24px rgba(7,39,29,.08),0 34px 80px rgba(7,39,29,.14);
+  --r:16px; --rl:24px; --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--body);
+  background:var(--white);line-height:1.65;font-size:16.5px;overflow-x:hidden}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;color:var(--ink);line-height:1.15;letter-spacing:-.015em}
+h1{font-size:clamp(2.1rem,5.2vw,3.7rem);font-weight:700}
+h2{font-size:clamp(1.65rem,3.6vw,2.5rem);font-weight:700}
+h3{font-size:1.16rem;font-weight:600;line-height:1.3}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--g500)}
+section{padding:clamp(58px,8vw,104px) 0}
+.lead{font-size:clamp(1.02rem,1.7vw,1.18rem);color:var(--body);max-width:64ch}
+
+/* ---------- BOTOES ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:.97rem;
+  padding:14px 26px;border-radius:999px;border:1.6px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap;font-family:inherit}
+.btn-p{background:var(--g500);color:#fff;box-shadow:0 6px 18px rgba(22,164,111,.32)}
+.btn-p:hover{background:var(--g600);transform:translateY(-2px);box-shadow:0 10px 26px rgba(22,164,111,.4)}
+.btn-o{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-o:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+.btn-d{border-color:var(--line);color:var(--ink);background:#fff}
+.btn-d:hover{border-color:var(--g400);color:var(--g600)}
+.btn-sm{padding:11px 20px;font-size:.9rem}
+
+/* ---------- HEADER ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:.25s}
+header.scrolled{border-bottom-color:var(--line);box-shadow:0 2px 20px rgba(7,39,29,.05)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo svg{height:38px;width:auto}
+.logo .txt{line-height:1;display:block}
+.logo .n{display:block;font-family:Fraunces,Georgia,serif;font-size:1.36rem;font-weight:700;color:var(--g800);letter-spacing:.5px}
+.logo .s{display:block;font-size:.53rem;letter-spacing:.29em;color:var(--g500);font-weight:600;margin-top:4px}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.93rem;font-weight:500;color:var(--body);transition:.2s;position:relative}
+.menu a:hover{color:var(--g600)}
+.menu a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--g500);transition:.25s;border-radius:2px}
+.menu a:hover::after{width:100%}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;margin:4px 0;transition:.25s}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:linear-gradient(160deg,#07271D 0%,#0B3B2C 42%,#0F5741 100%);
+  color:#fff;overflow:hidden;padding:clamp(64px,8vw,104px) 0 clamp(72px,9vw,120px)}
+.hero h1{color:#fff}
+.hero .inf{position:absolute;right:-140px;top:-60px;width:640px;opacity:.075;pointer-events:none}
+.hero .glow{position:absolute;left:-180px;bottom:-220px;width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(53,194,136,.28),transparent 68%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;position:relative;z-index:2}
+.hero p.sub{color:#C4E4D6;font-size:clamp(1.02rem,1.8vw,1.19rem);margin-top:20px;max-width:52ch}
+.hero .cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:34px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:500;color:#BFE3D2;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:8px 15px;border-radius:999px}
+.pill svg{width:14px;height:14px;flex:0 0 14px}
+/* card fluxo no hero */
+.flowcard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);border-radius:var(--rl);
+  padding:28px;backdrop-filter:blur(8px)}
+.flowcard .t{font-size:.72rem;letter-spacing:.19em;text-transform:uppercase;color:var(--g300);font-weight:700;margin-bottom:20px}
+.fl{display:flex;gap:15px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.fl:last-child{border-bottom:0;padding-bottom:0}
+.fl .n{flex:0 0 30px;height:30px;border-radius:50%;background:rgba(53,194,136,.2);border:1px solid rgba(53,194,136,.45);
+  color:var(--g300);font-size:.82rem;font-weight:700;display:grid;place-items:center}
+.fl .c strong{display:block;color:#fff;font-size:.96rem;font-weight:600;margin-bottom:2px}
+.fl .c span{font-size:.85rem;color:#A8CFBE;line-height:1.5}
+
+/* ---------- SIMULADOR ---------- */
+.sim{background:var(--g50);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sim-head{text-align:center;max-width:660px;margin:0 auto 42px}
+.sim-head .lead{margin:14px auto 0}
+.simbox{background:#fff;border:1px solid var(--line);border-radius:var(--rl);box-shadow:var(--sh-m);overflow:hidden}
+.simtop{padding:clamp(24px,3vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:28px 34px;border-bottom:1px solid var(--line)}
+.field label{display:block;font-size:.83rem;font-weight:600;color:var(--ink);margin-bottom:9px}
+.field .hint{font-size:.78rem;color:var(--mut);font-weight:400;margin-top:7px;display:block}
+.inp{width:100%;font-family:inherit;font-size:1.32rem;font-weight:600;color:var(--ink);padding:14px 16px;
+  border:1.6px solid var(--line);border-radius:12px;background:#fff;transition:.18s;outline:none}
+.inp:focus{border-color:var(--g500);box-shadow:0 0 0 4px rgba(22,164,111,.13)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.chip{font-size:.83rem;font-weight:600;padding:7px 14px;border-radius:999px;border:1.4px solid var(--line);
+  background:#fff;color:var(--body);cursor:pointer;transition:.18s;font-family:inherit}
+.chip:hover{border-color:var(--g400);color:var(--g600)}
+.chip.on{background:var(--g800);border-color:var(--g800);color:#fff}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:6px;background:var(--g100);outline:none;margin-top:16px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+  background:var(--g500);border:4px solid #fff;box-shadow:0 2px 8px rgba(7,39,29,.28);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--g500);
+  border:4px solid #fff;box-shadow:0 2px 8px rgba(7,39,29,.28);cursor:pointer}
+.segs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px}
+.seg{padding:13px 10px;border:1.6px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;
+  text-align:center;transition:.18s;font-family:inherit}
+.seg b{display:block;font-size:.88rem;font-weight:600;color:var(--ink)}
+.seg span{display:block;font-size:.73rem;color:var(--mut);margin-top:2px}
+.seg:hover{border-color:var(--g400)}
+.seg.on{border-color:var(--g500);background:var(--g50);box-shadow:0 0 0 3px rgba(22,164,111,.11)}
+.seg.on b{color:var(--g600)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.rcard{padding:clamp(20px,2.4vw,28px);border-right:1px solid var(--line);transition:.25s;position:relative}
+.rcard:last-child{border-right:0}
+.rcard.on{background:linear-gradient(170deg,#0B3B2C,#0F5741);color:#fff}
+.rcard .rt{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
+.rcard .rn{font-size:.79rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--mut)}
+.rcard.on .rn{color:var(--g300)}
+.rcard .rr{font-size:.79rem;font-weight:600;color:var(--g600)}
+.rcard.on .rr{color:var(--g300)}
+.rcard .big{font-family:Fraunces,Georgia,serif;font-size:clamp(1.6rem,3vw,2.15rem);font-weight:700;color:var(--ink);
+  margin:12px 0 3px;letter-spacing:-.02em;line-height:1.05}
+.rcard.on .big{color:#fff}
+.rcard .biglbl{font-size:.79rem;color:var(--mut);margin-bottom:18px}
+.rcard.on .biglbl{color:#A8CFBE}
+.rl{display:flex;justify-content:space-between;gap:10px;font-size:.85rem;padding:7px 0;border-bottom:1px dashed var(--line)}
+.rcard.on .rl{border-bottom-color:rgba(255,255,255,.14)}
+.rl:last-of-type{border-bottom:0}
+.rl span{color:var(--mut)}
+.rcard.on .rl span{color:#9FC9B7}
+.rl b{font-weight:600;color:var(--ink)}
+.rcard.on .rl b{color:#fff}
+.cet{margin-top:14px;padding:11px 13px;background:var(--g50);border-radius:10px;display:flex;
+  justify-content:space-between;align-items:center;font-size:.85rem}
+.rcard.on .cet{background:rgba(255,255,255,.1)}
+.cet b{font-weight:700;color:var(--g600)}
+.rcard.on .cet b{color:var(--g300)}
+.badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--g500);color:#fff;
+  font-size:.63rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:4px 13px;border-radius:0 0 8px 8px}
+.simfoot{padding:20px clamp(20px,2.4vw,28px);background:var(--g50);border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.simfoot p{font-size:.79rem;color:var(--mut);max-width:70ch;line-height:1.55}
+
+/* ---------- GENERICOS ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:.25s}
+.card:hover{border-color:var(--g300);box-shadow:var(--sh-m);transform:translateY(-3px)}
+.card .ic{width:44px;height:44px;border-radius:12px;background:var(--g50);border:1px solid var(--g100);
+  display:grid;place-items:center;margin-bottom:16px}
+.card .ic svg{width:21px;height:21px;stroke:var(--g500);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card h3{margin-bottom:7px}
+.card p{font-size:.92rem;line-height:1.6}
+.stepn{font-family:Fraunces,Georgia,serif;font-size:2.5rem;font-weight:700;color:var(--g100);line-height:1;margin-bottom:8px}
+.head{max-width:680px;margin-bottom:44px}
+.head h2{margin:12px 0 14px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* explicativo escuro */
+.dark{background:linear-gradient(165deg,#07271D,#0B3B2C 60%,#0F5741);color:#C4E4D6;position:relative;overflow:hidden}
+.dark h2,.dark h3{color:#fff}
+.dark .inf{position:absolute;left:-160px;bottom:-160px;width:520px;opacity:.06}
+.dark .lead{color:#B6DCC9}
+.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px}
+.term{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:19px 22px}
+.term b{display:block;color:#fff;font-size:.98rem;font-weight:600;margin-bottom:5px}
+.term span{font-size:.88rem;color:#A8CFBE;line-height:1.55}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.q{border-bottom:1px solid var(--line)}
+.q summary{cursor:pointer;list-style:none;padding:20px 46px 20px 0;font-weight:600;color:var(--ink);
+  font-size:1.02rem;position:relative;transition:.2s}
+.q summary::-webkit-details-marker{display:none}
+.q summary:hover{color:var(--g600)}
+.q summary::after{content:"";position:absolute;right:8px;top:50%;width:10px;height:10px;
+  border-right:2px solid var(--g500);border-bottom:2px solid var(--g500);transform:translateY(-70%) rotate(45deg);transition:.25s}
+.q[open] summary::after{transform:translateY(-20%) rotate(-135deg)}
+.q .a{padding:0 40px 22px 0;font-size:.95rem;line-height:1.7}
+
+/* cta final */
+.ctafinal{background:var(--g50)}
+.ctabox{background:linear-gradient(150deg,#0B3B2C,#12775A);border-radius:var(--rl);padding:clamp(36px,5vw,64px);
+  color:#fff;text-align:center;position:relative;overflow:hidden;box-shadow:var(--sh-l)}
+.ctabox h2{color:#fff}
+.ctabox p{color:#C4E4D6;max-width:56ch;margin:16px auto 30px}
+.ctabox .inf{position:absolute;right:-90px;top:-70px;width:400px;opacity:.09}
+.ctabtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+
+/* footer */
+footer{background:#07271D;color:#8FB6A6;padding:58px 0 30px;font-size:.9rem}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:38px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.09)}
+footer h4{color:#fff;font-family:Inter,sans-serif;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700}
+footer a:hover{color:var(--g300)}
+footer ul{list-style:none}
+footer li{margin-bottom:8px}
+.fbot{padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.79rem;color:#6B9384}
+.disc{margin-top:20px;font-size:.76rem;color:#6B9384;line-height:1.6;max-width:88ch}
+.wa{position:fixed;right:20px;bottom:20px;z-index:70;width:56px;height:56px;border-radius:50%;background:#25D366;
+  display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.42);transition:.2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:29px;height:29px;fill:#fff}
+
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .grid3,.grid4{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:1fr}
+  .rcard{border-right:0;border-bottom:1px solid var(--line)}
+  .rcard:last-child{border-bottom:0}
+  .terms{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .menu{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;
+    gap:0;padding:10px 22px 22px;border-bottom:1px solid var(--line);box-shadow:var(--sh-m)}
+  .menu.open{display:flex}
+  .menu a{width:100%;padding:13px 0;border-bottom:1px solid var(--line)}
+  .menu a::after{display:none}
+  .burger{display:block}
+  .nav>.btn{display:none}
+  .simtop{grid-template-columns:1fr}
+  .grid3,.grid4,.fgrid{grid-template-columns:1fr}
+  .segs{grid-template-columns:1fr}
+  body{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="hd">
+  <div class="wrap nav">
+    <a class="logo" href="#topo" aria-label="Maphi Securitizadora">
+      <svg viewBox="0 0 150 110" aria-hidden="true">
+        <defs><linearGradient id="lg1" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stop-color="#0B3B2C"/><stop offset="45%" stop-color="#12775A"/>
+          <stop offset="80%" stop-color="#16A46F"/><stop offset="100%" stop-color="#63DBA3"/>
+        </linearGradient></defs>
+        <path d="M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z"
+              fill="none" stroke="url(#lg1)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="txt"><span class="n">MAPHI</span><span class="s">SECURITIZADORA</span></span>
+    </a>
+    <nav class="menu" id="mn">
+      <a href="#simulador">Simular</a>
+      <a href="#como">Como funciona</a>
+      <a href="#antecipar">O que antecipar</a>
+      <a href="#entenda">Entenda</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-p btn-sm" href="#contato">Falar com a Maphi</a>
+    <button class="burger" id="bg" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <svg class="inf" viewBox="0 0 150 110" aria-hidden="true">
+    <path d="M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z"
+          fill="none" stroke="#8DE3B8" stroke-width="9" stroke-linecap="round"/>
+  </svg>
+  <div class="glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" style="color:#63DBA3">Antecipação de recebíveis</div>
+      <h1 style="margin-top:16px">Sua venda foi feita.<br>Seu caixa não precisa esperar.</h1>
+      <p class="sub">Você vendeu a prazo e o dinheiro só entra em 30, 60 ou 90 dias. A Maphi compra esse recebível e coloca o valor na sua conta agora — para você pagar folha, comprar insumo e crescer sem tomar dívida.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#simulador">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h3M8 14h3M8 18h3M15 10v8"/></svg>
+          Simular agora
+        </a>
+        <a class="btn btn-o" href="#como">Como funciona</a>
+      </div>
+      <div class="pills">
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#63DBA3" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Análise no mesmo dia</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#63DBA3" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Sem consulta ao seu limite bancário</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#63DBA3" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Custo transparente, sem surpresa</span>
+      </div>
+    </div>
+    <div class="flowcard">
+      <div class="t">Do envio ao pagamento</div>
+      <div class="fl"><div class="n">1</div><div class="c"><strong>Você envia os títulos</strong><span>Duplicata, nota fiscal ou contrato — pelo WhatsApp ou por e-mail.</span></div></div>
+      <div class="fl"><div class="n">2</div><div class="c"><strong>A gente analisa</strong><span>Verificamos o documento e quem vai pagar. Resposta com a proposta e o valor líquido.</span></div></div>
+      <div class="fl"><div class="n">3</div><div class="c"><strong>Você aceita</strong><span>Assinatura eletrônica, sem papelada e sem cartório.</span></div></div>
+      <div class="fl"><div class="n">4</div><div class="c"><strong>O dinheiro cai</strong><span>Transferência para a conta da sua empresa no mesmo dia.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIMULADOR ============ -->
+<section class="sim" id="simulador">
+  <div class="wrap">
+    <div class="sim-head">
+      <div class="eyebrow">Simulador gratuito · sem cadastro</div>
+      <h2 style="margin-top:12px">Quanto sua empresa recebe hoje?</h2>
+      <p class="lead">Informe o valor do título e o prazo. Você vê lado a lado três cenários de taxa — porque quem mais influencia o custo não é a sua empresa, é <strong>quem vai pagar</strong> o título.</p>
+    </div>
+
+    <div class="simbox">
+      <div class="simtop">
+        <div class="field">
+          <label for="valor">Valor do título (valor de face)</label>
+          <input class="inp" id="valor" inputmode="numeric" value="R$ 50.000,00" aria-describedby="hv">
+          <span class="hint" id="hv">Some aqui todos os títulos que pretende antecipar.</span>
+          <div class="chips" id="chipsV">
+            <button class="chip" data-v="10000" type="button">R$ 10 mil</button>
+            <button class="chip" data-v="50000" type="button">R$ 50 mil</button>
+            <button class="chip" data-v="100000" type="button">R$ 100 mil</button>
+            <button class="chip" data-v="250000" type="button">R$ 250 mil</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="prazo">Prazo até o vencimento — <b id="prazoTxt" style="color:var(--g600)">60 dias</b></label>
+          <input type="range" id="prazo" min="7" max="180" step="1" value="60">
+          <div class="chips" id="chipsP">
+            <button class="chip" data-p="30" type="button">30 dias</button>
+            <button class="chip on" data-p="60" type="button">60 dias</button>
+            <button class="chip" data-p="90" type="button">90 dias</button>
+            <button class="chip" data-p="120" type="button">120 dias</button>
+          </div>
+          <span class="hint">Se houver vários títulos, use o prazo médio entre eles.</span>
+        </div>
+        <div class="field" style="grid-column:1/-1">
+          <label>Quem vai pagar o título (o sacado)</label>
+          <div class="segs" id="segs">
+            <button class="seg" data-i="0" type="button"><b>Grande empresa</b><span>Indústria, varejo ou rede consolidada</span></button>
+            <button class="seg on" data-i="1" type="button"><b>Médio porte</b><span>Empresa estabelecida, porte intermediário</span></button>
+            <button class="seg" data-i="2" type="button"><b>Pequeno porte</b><span>Cliente menor ou carteira pulverizada</span></button>
+          </div>
+          <span class="hint">Quanto mais sólido o pagador, menor o custo da operação. A simulação mostra os três cenários sempre.</span>
+        </div>
+      </div>
+
+      <div class="cards" id="cards"></div>
+
+      <div class="simfoot">
+        <p><strong>Simulação indicativa.</strong> Cálculo: deságio proporcional ao prazo + taxa de serviço sobre o valor de face + tarifa por título. Não incide IOF na cessão de direitos creditórios à securitizadora. As condições finais dependem da análise do título e do sacado.</p>
+        <a class="btn btn-p" href="#contato">Quero uma proposta real</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section id="como">
+  <div class="wrap">
+    <div class="head center" style="text-align:center">
+      <div class="eyebrow">Passo a passo</div>
+      <h2>Simples do começo ao fim</h2>
+      <p class="lead center">Do primeiro contato ao dinheiro na conta. O cadastro é feito uma única vez — depois disso, cada nova antecipação leva horas.</p>
+    </div>
+    <div class="grid4">
+      <div class="card"><div class="stepn">01</div><h3>Cadastro</h3><p>Enviamos a lista de documentos da empresa. Analisamos e definimos um limite de operação. Feito uma única vez.</p></div>
+      <div class="card"><div class="stepn">02</div><h3>Envio dos títulos</h3><p>Você manda a relação do que quer antecipar — o borderô — com as notas e os comprovantes de entrega.</p></div>
+      <div class="card"><div class="stepn">03</div><h3>Análise e proposta</h3><p>Conferimos os documentos e o pagador. Você recebe o valor líquido exato antes de decidir qualquer coisa.</p></div>
+      <div class="card"><div class="stepn">04</div><h3>Pagamento</h3><p>Aceitou, assina eletronicamente e o valor é transferido para a conta da sua empresa no mesmo dia.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE ANTECIPAR ============ -->
+<section id="antecipar" style="background:var(--g50);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Ativos aceitos</div>
+      <h2>O que dá para antecipar</h2>
+      <p class="lead">Se a venda já aconteceu e existe documento que comprove, provavelmente dá para transformar em caixa hoje.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+        <h3>Duplicatas</h3><p>Títulos gerados a partir de vendas mercantis a prazo, em papel ou escriturais.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div>
+        <h3>Notas fiscais</h3><p>NF-e de produto ou de serviço já emitida e com entrega comprovada.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h3>Contratos de prestação</h3><p>Serviços contratados com pagamento programado ao longo do tempo.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+        <h3>Recebíveis de cartão</h3><p>Agenda de vendas parceladas junto à credenciadora.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/></svg></div>
+        <h3>Carteiras de crédito</h3><p>Conjuntos de parcelas a receber de clientes, para empresas que vendem parcelado.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3>Outros direitos creditórios</h3><p>Tem um recebível diferente? Fale com a gente — analisamos caso a caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTENDA ============ -->
+<section class="dark" id="entenda">
+  <svg class="inf" viewBox="0 0 150 110" aria-hidden="true">
+    <path d="M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z"
+          fill="none" stroke="#8DE3B8" stroke-width="9" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="head">
+      <div class="eyebrow" style="color:#63DBA3">Sem jargão</div>
+      <h2>O que é, afinal, uma securitizadora</h2>
+      <p class="lead">Uma securitizadora compra direitos de receber. Você tem um valor a receber daqui a 60 dias; nós compramos esse direito e pagamos à vista, com um desconto. No vencimento, quem nos paga é o seu cliente.</p>
+      <p class="lead" style="margin-top:16px">Não é empréstimo. Você não fica devendo, não compromete limite bancário e não aumenta o endividamento da empresa no balanço — é a <strong style="color:#fff">venda de um ativo que já é seu</strong>.</p>
+    </div>
+    <div class="terms">
+      <div class="term"><b>Cedente</b><span>É você — a empresa que vendeu a prazo e quer o dinheiro antes.</span></div>
+      <div class="term"><b>Sacado</b><span>É quem tem a obrigação de pagar o título: o seu cliente.</span></div>
+      <div class="term"><b>Deságio</b><span>O desconto aplicado na compra do título. É o custo principal da operação.</span></div>
+      <div class="term"><b>Taxa de serviço</b><span>Percentual fixo sobre o valor de face, que cobre a análise e a gestão da operação.</span></div>
+      <div class="term"><b>Valor de face</b><span>O valor cheio do título, o que será pago no vencimento.</span></div>
+      <div class="term"><b>Valor líquido</b><span>O que efetivamente cai na conta da sua empresa, já com tudo descontado.</span></div>
+      <div class="term"><b>Borderô</b><span>A relação dos títulos que você envia de uma vez para antecipar.</span></div>
+      <div class="term"><b>Cessão de crédito</b><span>O ato de transferir o direito de receber, previsto nos artigos 286 a 298 do Código Civil.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUE ============ -->
+<section>
+  <div class="wrap">
+    <div class="head center" style="text-align:center">
+      <div class="eyebrow">Por que a Maphi</div>
+      <h2>Relação de longo prazo, não operação avulsa</h2>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Agilidade de verdade</h3><p>Depois do cadastro, cada nova antecipação é analisada e paga no mesmo dia útil. Sem fila e sem comitê que demora semanas.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Custo aberto na mesa</h3><p>Você vê deságio, taxa de serviço, tarifas e valor líquido antes de aceitar. Nada aparece depois.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Atendimento direto</h3><p>Você fala com quem decide, não com uma central. A gente conhece a sua operação e o seu ciclo de caixa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="duvidas" style="background:var(--g50);border-top:1px solid var(--line)">
+  <div class="wrap" style="max-width:860px">
+    <div class="head center" style="text-align:center">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Dúvidas comuns</h2>
+    </div>
+    <div class="faq">
+      <details class="q"><summary>Antecipar é a mesma coisa que fazer um empréstimo?</summary>
+        <div class="a">Não. No empréstimo você assume uma dívida e passa a dever. Na antecipação você vende um recebível que já é seu e recebe à vista. Não entra como dívida no balanço nem consome o seu limite bancário.</div></details>
+      <details class="q"><summary>Minha empresa precisa ter faturamento mínimo?</summary>
+        <div class="a">Atendemos empresas de portes variados. O que mais pesa na análise não é o seu faturamento, e sim a qualidade do título e de quem vai pagá-lo. Fale com a gente e avaliamos o seu caso.</div></details>
+      <details class="q"><summary>O que define a taxa da minha operação?</summary>
+        <div class="a">Três fatores principais: quem é o sacado (o pagador do título), o prazo até o vencimento e a qualidade da documentação. Título com nota fiscal e comprovante de entrega em ordem, de um pagador sólido e com prazo curto, é sempre o cenário de menor custo.</div></details>
+      <details class="q"><summary>Meu cliente vai ficar sabendo?</summary>
+        <div class="a">Na maioria das operações sim, porque o pagamento passa a ser feito à Maphi. Isso é normal no mercado e não afeta o seu relacionamento comercial — a operação continua sendo entre você e o seu cliente.</div></details>
+      <details class="q"><summary>Quais documentos preciso enviar?</summary>
+        <div class="a">Para o cadastro: contrato social, documentos dos sócios, certidões e informações financeiras básicas. Para cada operação: a nota fiscal, o título e o comprovante de entrega ou de prestação do serviço.</div></details>
+      <details class="q"><summary>Incide IOF?</summary>
+        <div class="a">Na cessão de direitos creditórios a uma securitizadora não há incidência de IOF, por não se tratar de operação de crédito e sim de aquisição definitiva de um direito. É uma das diferenças em relação a operações bancárias e de fomento.</div></details>
+      <details class="q"><summary>Em quanto tempo o dinheiro cai?</summary>
+        <div class="a">Depois do cadastro aprovado, o fluxo normal é: você envia o borderô pela manhã, recebe a proposta em algumas horas e, aceitando, o valor é transferido no mesmo dia útil.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ctafinal" id="contato">
+  <div class="wrap">
+    <div class="ctabox">
+      <svg class="inf" viewBox="0 0 150 110" aria-hidden="true">
+        <path d="M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z"
+              fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+      </svg>
+      <div class="eyebrow" style="color:#8DE3B8;position:relative;z-index:2">Fale com a gente</div>
+      <h2 style="margin-top:12px;position:relative;z-index:2">Vamos ver o seu caso</h2>
+      <p style="position:relative;z-index:2">Mande os títulos que você quer antecipar e a gente devolve uma proposta com o valor líquido exato. Sem compromisso e sem custo para simular.</p>
+      <div class="ctabtns">
+        <a class="btn btn-p" href="https://wa.me/551132444560?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20uma%20antecipa%C3%A7%C3%A3o%20de%20receb%C3%ADveis." target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1s-1.3-.5-2.4-1.5c-.9-.8-1.5-1.8-1.7-2.1s0-.5.2-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.6-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.6 0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.5-8.3 8.5z"/></svg>
+          WhatsApp
+        </a>
+        <a class="btn btn-o" href="mailto:comercial@maphiadm.com.br?subject=Simula%C3%A7%C3%A3o%20de%20antecipa%C3%A7%C3%A3o%20de%20receb%C3%ADveis">comercial@maphiadm.com.br</a>
+        <a class="btn btn-o" href="tel:+551132444560">(11) 3244-4560</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#topo" style="margin-bottom:14px">
+          <svg viewBox="0 0 150 110" style="height:34px" aria-hidden="true">
+            <path d="M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z"
+                  fill="none" stroke="#35C288" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="txt"><span class="n" style="color:#fff">MAPHI</span><span class="s" style="color:#35C288">SECURITIZADORA</span></span>
+        </a>
+        <p style="max-width:38ch;line-height:1.65">Compra de direitos creditórios e antecipação de recebíveis para empresas.</p>
+      </div>
+      <div>
+        <h4>Navegue</h4>
+        <ul>
+          <li><a href="#simulador">Simulador</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#antecipar">O que antecipar</a></li>
+          <li><a href="#entenda">Entenda a securitização</a></li>
+          <li><a href="#duvidas">Dúvidas frequentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:+551132444560">(11) 3244-4560</a></li>
+          <li><a href="mailto:comercial@maphiadm.com.br">comercial@maphiadm.com.br</a></li>
+          <li style="margin-top:12px;line-height:1.6">São Bernardo do Campo — SP</li>
+          <li>CNPJ 46.681.275/0001-39</li>
+        </ul>
+      </div>
+    </div>
+    <p class="disc">MAPHI SECURITIZADORA S.A. — CNPJ 46.681.275/0001-39. As simulações apresentadas neste site são indicativas e de caráter informativo, não constituindo proposta, oferta firme ou garantia de contratação. Taxas, prazos e condições finais dependem da análise documental e de crédito de cada operação. A Maphi Securitizadora não é instituição financeira e não realiza operações privativas dessas instituições.</p>
+    <div class="fbot">
+      <span>&copy; <span id="ano"></span> Maphi Securitizadora. Todos os direitos reservados.</span>
+      <span>Feito com atenção ao detalhe.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/551132444560?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20uma%20antecipa%C3%A7%C3%A3o%20de%20receb%C3%ADveis." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1s-1.3-.5-2.4-1.5c-.9-.8-1.5-1.8-1.7-2.1s0-.5.2-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.6-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.6 0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.5-8.3 8.5z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- PARÂMETROS DA SIMULAÇÃO ----------
+     Ajuste estes valores para a política de taxas real da casa. */
+  var PERFIS = [
+    { nome:"Baixo risco",  desc:"Grande empresa", fator:1.80, servico:0.30 },
+    { nome:"Risco médio",  desc:"Médio porte",    fator:2.90, servico:0.50 },
+    { nome:"Risco maior",  desc:"Pequeno porte",  fator:4.20, servico:0.80 }
+  ];
+  var TARIFA = 50;            // tarifa fixa por operação, em reais
+  var IOF_ATIVO = false;      // não incide na cessão à securitizadora
+
+  var BRL = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+  var NUM = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  var elValor = document.getElementById("valor");
+  var elPrazo = document.getElementById("prazo");
+  var elPrazoTxt = document.getElementById("prazoTxt");
+  var elCards = document.getElementById("cards");
+  var estado = { valor:50000, prazo:60, perfil:1 };
+
+  function soDigitos(s){ return (s||"").replace(/\D/g,""); }
+  function formataMoeda(centavos){ return BRL.format(centavos/100); }
+
+  /* ---- entrada de valor com máscara ---- */
+  elValor.addEventListener("input", function(){
+    var d = soDigitos(elValor.value);
+    if(d.length > 11) d = d.slice(0,11);
+    var cent = parseInt(d || "0", 10);
+    elValor.value = formataMoeda(cent);
+    estado.valor = cent/100;
+    marcarChipValor();
+    render();
+  });
+  elValor.addEventListener("focus", function(){
+    setTimeout(function(){ elValor.setSelectionRange(elValor.value.length, elValor.value.length); }, 0);
+  });
+
+  function marcarChipValor(){
+    Array.prototype.forEach.call(document.querySelectorAll("#chipsV .chip"), function(c){
+      c.classList.toggle("on", parseFloat(c.dataset.v) === estado.valor);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("#chipsV .chip"), function(c){
+    c.addEventListener("click", function(){
+      estado.valor = parseFloat(c.dataset.v);
+      elValor.value = formataMoeda(estado.valor*100);
+      marcarChipValor(); render();
+    });
+  });
+
+  /* ---- prazo ---- */
+  function setPrazo(p, vindoDoSlider){
+    estado.prazo = p;
+    elPrazoTxt.textContent = p + (p === 1 ? " dia" : " dias");
+    if(!vindoDoSlider) elPrazo.value = p;
+    Array.prototype.forEach.call(document.querySelectorAll("#chipsP .chip"), function(c){
+      c.classList.toggle("on", parseInt(c.dataset.p,10) === p);
+    });
+    render();
+  }
+  elPrazo.addEventListener("input", function(){ setPrazo(parseInt(elPrazo.value,10), true); });
+  Array.prototype.forEach.call(document.querySelectorAll("#chipsP .chip"), function(c){
+    c.addEventListener("click", function(){ setPrazo(parseInt(c.dataset.p,10), false); });
+  });
+
+  /* ---- perfil do sacado ---- */
+  Array.prototype.forEach.call(document.querySelectorAll("#segs .seg"), function(s){
+    s.addEventListener("click", function(){
+      estado.perfil = parseInt(s.dataset.i,10);
+      Array.prototype.forEach.call(document.querySelectorAll("#segs .seg"), function(x){
+        x.classList.toggle("on", x === s);
+      });
+      render();
+    });
+  });
+
+  /* ---- cálculo ---- */
+  function calcula(p){
+    var face = estado.valor, dias = estado.prazo;
+    var desagio = face * (p.fator/100) * (dias/30);
+    var servico = face * (p.servico/100);
+    var tarifa  = face > 0 ? TARIFA : 0;
+    var iof     = IOF_ATIVO ? face * ((0.000082*dias) + 0.0095) : 0;
+    var custo   = desagio + servico + tarifa + iof;
+    var liquido = face - custo;
+    var cet = 0;
+    if(liquido > 0 && dias > 0){
+      cet = (Math.pow(face/liquido, 30/dias) - 1) * 100;
+    }
+    return { desagio:desagio, servico:servico, tarifa:tarifa, iof:iof, custo:custo, liquido:liquido, cet:cet };
+  }
+
+  function linha(rot, val){
+    return '<div class="rl"><span>'+rot+'</span><b>'+BRL.format(val)+'</b></div>';
+  }
+
+  function render(){
+    var html = "";
+    for(var i=0;i<PERFIS.length;i++){
+      var p = PERFIS[i], r = calcula(p), sel = (i === estado.perfil);
+      html += '<div class="rcard'+(sel?' on':'')+'">'
+        + (sel ? '<span class="badge">seu cenário</span>' : '')
+        + '<div class="rt"><span class="rn">'+p.nome+'</span><span class="rr">'+NUM.format(p.fator)+'% a.m.</span></div>'
+        + '<div class="big">'+ (r.liquido > 0 ? BRL.format(r.liquido) : '—') +'</div>'
+        + '<div class="biglbl">valor líquido para a sua empresa</div>'
+        + linha('Valor de face', estado.valor)
+        + linha('Deságio ('+NUM.format(p.fator)+'% × '+estado.prazo+'d)', -r.desagio)
+        + linha('Taxa de serviço ('+NUM.format(p.servico)+'%)', -r.servico)
+        + linha('Tarifa', -r.tarifa)
+        + '<div class="rl"><span>IOF</span><b>'+(IOF_ATIVO ? BRL.format(-r.iof) : 'não incide')+'</b></div>'
+        + '<div class="cet"><span>Custo efetivo</span><b>'+ (r.liquido>0 ? NUM.format(r.cet)+'% a.m.' : '—') +'</b></div>'
+        + '</div>';
+    }
+    elCards.innerHTML = html;
+  }
+
+  /* ---- header / menu ---- */
+  var hd = document.getElementById("hd");
+  window.addEventListener("scroll", function(){
+    hd.classList.toggle("scrolled", window.scrollY > 12);
+  }, {passive:true});
+
+  var bg = document.getElementById("bg"), mn = document.getElementById("mn");
+  bg.addEventListener("click", function(){
+    var aberto = mn.classList.toggle("open");
+    bg.setAttribute("aria-expanded", aberto ? "true" : "false");
+  });
+  Array.prototype.forEach.call(mn.querySelectorAll("a"), function(a){
+    a.addEventListener("click", function(){ mn.classList.remove("open"); bg.setAttribute("aria-expanded","false"); });
+  });
+
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+  marcarChipValor();
+  setPrazo(60,false);
+})();
+</script>
+</body>
+</html>
