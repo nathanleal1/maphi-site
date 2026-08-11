@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 118" width="520" height="118" role="img" aria-label="Maphi Securitizadora">
+  <defs>
+    <linearGradient id="mInf" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#0B3B2C"/>
+      <stop offset="45%"  stop-color="#12775A"/>
+      <stop offset="80%"  stop-color="#16A46F"/>
+      <stop offset="100%" stop-color="#63DBA3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- simbolo do infinito -->
+  <g transform="translate(4,6) scale(0.94)">
+    <path d="M28,55 C28,22 64,22 75,55 C86,88 122,88 122,55 C122,22 86,22 75,55 C64,88 28,88 28,55 Z"
+          fill="none" stroke="url(#mInf)" stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="158" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="bold"
+        letter-spacing="1.5" fill="#0B3B2C">MAPHI</text>
+  <text x="161" y="87" font-family="Helvetica, Arial, sans-serif" font-size="13"
+        letter-spacing="6.9" fill="#16A46F">SECURITIZADORA</text>
+</svg>
